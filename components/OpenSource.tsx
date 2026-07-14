@@ -1,0 +1,133 @@
+"use client";
+
+import Reveal from "./AnimateOnScroll";
+import { Github, GitPullRequest } from "lucide-react";
+
+const contributions = [
+  {
+    title: "Microsoft AutoGen",
+    repo: "microsoft/autogen",
+    tagline: "Fixed core configuration parsing for Azure deployments and extra_body",
+    status: "Merged",
+    statusColor: "chip-green",
+    description:
+      "Patched a critical bug where OpenAIChatCompletionClient threw ValueErrors on custom Azure deployment names. Also fixed silent dropping of `extra_body` configs when loaded via AutoGen Studio JSON by injecting it through the Pydantic schemas and client initialization pipeline.",
+    tech: ["Python", "Pydantic", "Azure OpenAI"],
+    metrics: ["Core Architecture", "High Priority"],
+    github: "https://github.com/microsoft/autogen/pull/7954",
+  },
+  {
+    title: "CrewAI",
+    repo: "crewAIInc/crewAI",
+    tagline: "Built native async support for kickoff callbacks",
+    status: "Merged",
+    statusColor: "chip-green",
+    description:
+      "Architected `aprepare_kickoff` and refactored the `akickoff` execution engine to properly await asynchronous `before_kickoff_callbacks` and `after_kickoff_callbacks`, resolving a critical concurrency state corruption issue in highly-parallelized agent deployments.",
+    tech: ["Python", "Asyncio", "Agent Frameworks"],
+    metrics: ["Concurrency", "Engine Refactor"],
+    github: "https://github.com/crewAIInc/crewAI/pull/6547",
+  },
+  {
+    title: "LangChain",
+    repo: "langchain-ai/langchain",
+    tagline: "Resolved state leakage and interrupt swallowing in Agent Middleware",
+    status: "Merged",
+    statusColor: "chip-green",
+    description:
+      "Identified and fixed `bind_tools` dictionary mutation causing state leakage across Perplexity API calls. Also patched a critical flaw in agent middleware where `GraphInterrupt` exceptions were being swallowed during multi-agent orchestration.",
+    tech: ["Python", "Middleware", "State Management"],
+    metrics: ["Bug Fix", "Agent State"],
+    github: "https://github.com/langchain-ai/langchain/pull/38844",
+  },
+  {
+    title: "LiteLLM",
+    repo: "BerriAI/litellm",
+    tagline: "Fixed Vertex AI and Azure param mapping issues",
+    status: "Merged",
+    statusColor: "chip-green",
+    description:
+      "Resolved edge cases in parameter mapping when passing custom configuration payloads between Vertex AI and Azure LLM endpoints, ensuring cross-platform stability.",
+    tech: ["Python", "API Integration", "Vertex AI"],
+    metrics: ["Bug Fix"],
+    github: "https://github.com/BerriAI/litellm/pull/33217",
+  },
+];
+
+export default function OpenSource() {
+  return (
+    <section id="opensource" className="py-28 md:py-36 bg-[#0a0a0a]">
+      <div className="divider mb-28" />
+      <div className="content-w s-pad">
+        <Reveal>
+          <p className="text-[#f97316] font-[var(--font-mono)] text-xs tracking-[0.2em] uppercase mb-3">
+            // giving back
+          </p>
+          <h2
+            className="text-[clamp(2.5rem,5vw,4rem)] text-[#ededed] leading-[0.95]"
+            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+          >
+            Open Source Impact
+          </h2>
+          <p className="text-[#888] text-sm mt-3 max-w-xl">
+            I don't just use AI frameworks—I build the infrastructure powering them. Here are my accepted core contributions to the world's most widely used AI libraries.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 space-y-6">
+          {contributions.map((c, i) => (
+            <Reveal key={c.repo} delay={i * 100}>
+              <div className="card glass rounded-2xl p-7 md:p-9 border border-white/[0.05] hover:border-[#f97316]/30 transition-colors">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="text-xl md:text-2xl font-semibold text-[#ededed]">
+                        {c.title}
+                      </h3>
+                      <span className={`chip ${c.statusColor}`}>{c.status}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-[#ededed]/80 text-sm font-medium mb-1">
+                      <GitPullRequest size={14} className="text-[#888]" />
+                      <span>{c.repo}</span>
+                    </div>
+                    <p className="text-[#f97316] text-xs font-medium">
+                      {c.tagline}
+                    </p>
+                  </div>
+                  <div className="flex gap-2 flex-shrink-0">
+                    {c.github && (
+                      <a
+                        href={c.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-9 h-9 rounded-lg bg-white/[0.04] flex items-center justify-center text-[#555] hover:text-[#f97316] hover:bg-[#f97316]/10 transition-all"
+                      >
+                        <Github size={16} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <p className="text-[#888] text-sm leading-[1.7] mb-5 max-w-3xl">
+                  {c.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {c.metrics.map((m) => (
+                    <span key={m} className="chip chip-cyan">{m}</span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {c.tech.map((t) => (
+                    <span key={t} className="chip chip-neutral">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
