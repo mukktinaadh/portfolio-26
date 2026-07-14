@@ -8,8 +8,8 @@ const contributions = [
     title: "Microsoft AutoGen",
     repo: "microsoft/autogen",
     tagline: "Fixed core configuration parsing for Azure deployments and extra_body",
-    status: "Merged",
-    statusColor: "chip-green",
+    status: "Open PR",
+    statusColor: "chip-orange",
     description:
       "Patched a critical bug where OpenAIChatCompletionClient threw ValueErrors on custom Azure deployment names. Also fixed silent dropping of `extra_body` configs when loaded via AutoGen Studio JSON by injecting it through the Pydantic schemas and client initialization pipeline.",
     tech: ["Python", "Pydantic", "Azure OpenAI"],
@@ -20,8 +20,8 @@ const contributions = [
     title: "CrewAI",
     repo: "crewAIInc/crewAI",
     tagline: "Built native async support for kickoff callbacks",
-    status: "Merged",
-    statusColor: "chip-green",
+    status: "Open PR",
+    statusColor: "chip-orange",
     description:
       "Architected `aprepare_kickoff` and refactored the `akickoff` execution engine to properly await asynchronous `before_kickoff_callbacks` and `after_kickoff_callbacks`, resolving a critical concurrency state corruption issue in highly-parallelized agent deployments.",
     tech: ["Python", "Asyncio", "Agent Frameworks"],
@@ -32,8 +32,8 @@ const contributions = [
     title: "LangChain",
     repo: "langchain-ai/langchain",
     tagline: "Resolved state leakage and interrupt swallowing in Agent Middleware",
-    status: "Merged",
-    statusColor: "chip-green",
+    status: "Open PR",
+    statusColor: "chip-orange",
     description:
       "Identified and fixed `bind_tools` dictionary mutation causing state leakage across Perplexity API calls. Also patched a critical flaw in agent middleware where `GraphInterrupt` exceptions were being swallowed during multi-agent orchestration.",
     tech: ["Python", "Middleware", "State Management"],
@@ -44,8 +44,8 @@ const contributions = [
     title: "LiteLLM",
     repo: "BerriAI/litellm",
     tagline: "Fixed Vertex AI and Azure param mapping issues",
-    status: "Merged",
-    statusColor: "chip-green",
+    status: "Open PR",
+    statusColor: "chip-orange",
     description:
       "Resolved edge cases in parameter mapping when passing custom configuration payloads between Vertex AI and Azure LLM endpoints, ensuring cross-platform stability.",
     tech: ["Python", "API Integration", "Vertex AI"],
@@ -70,7 +70,7 @@ export default function OpenSource() {
             Open Source Impact
           </h2>
           <p className="text-[#888] text-sm mt-3 max-w-xl">
-            I don't just use AI frameworks—I build the infrastructure powering them. Here are my accepted core contributions to the world's most widely used AI libraries.
+            I don't just use AI frameworks—I build the infrastructure powering them. Here are my core contributions to the world's most widely used AI libraries.
           </p>
         </Reveal>
 
