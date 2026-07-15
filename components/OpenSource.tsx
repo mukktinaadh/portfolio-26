@@ -5,6 +5,7 @@ import { Github, GitPullRequest } from "lucide-react";
 
 const contributions = [
   {
+    id: "litellm-33373",
     title: "LiteLLM",
     repo: "BerriAI/litellm",
     tagline: "Fixed core routing for OpenAI GPT-5.6 reasoning models",
@@ -17,6 +18,7 @@ const contributions = [
     github: "https://github.com/BerriAI/litellm/pull/33373",
   },
   {
+    id: "autogen-7959",
     title: "Microsoft AutoGen",
     repo: "microsoft/autogen",
     tagline: "Optimized Azure AI agent for parallel tool execution",
@@ -29,18 +31,7 @@ const contributions = [
     github: "https://github.com/microsoft/autogen/pull/7959",
   },
   {
-    title: "Pydantic AI",
-    repo: "pydantic/pydantic-ai",
-    tagline: "Fixed core content filter handling in agent orchestration graph",
-    status: "Open PR",
-    statusColor: "chip-orange",
-    description:
-      "Patched a critical security flaw in the streaming agent graph where `content_filter` block reasons were being silently bypassed if the model returned partial refusal text. Restructured the run loop to guarantee `ContentFilterError` exceptions are strictly enforced before content validation.",
-    tech: ["Python", "Pydantic", "Async Streaming"],
-    metrics: ["Security Fix", "Agent Graph"],
-    github: "https://github.com/pydantic/pydantic-ai/pull/6513",
-  },
-  {
+    id: "autogen-7954",
     title: "Microsoft AutoGen",
     repo: "microsoft/autogen",
     tagline: "Fixed core configuration parsing for Azure deployments and extra_body",
@@ -53,6 +44,7 @@ const contributions = [
     github: "https://github.com/microsoft/autogen/pull/7954",
   },
   {
+    id: "crewai-6547",
     title: "CrewAI",
     repo: "crewAIInc/crewAI",
     tagline: "Built native async support for kickoff callbacks",
@@ -65,18 +57,7 @@ const contributions = [
     github: "https://github.com/crewAIInc/crewAI/pull/6547",
   },
   {
-    title: "LangChain",
-    repo: "langchain-ai/langchain",
-    tagline: "Resolved state leakage and interrupt swallowing in Agent Middleware",
-    status: "Open PR",
-    statusColor: "chip-orange",
-    description:
-      "Identified and fixed `bind_tools` dictionary mutation causing state leakage across Perplexity API calls. Also patched a critical flaw in agent middleware where `GraphInterrupt` exceptions were being swallowed during multi-agent orchestration.",
-    tech: ["Python", "Middleware", "State Management"],
-    metrics: ["Bug Fix", "Agent State"],
-    github: "https://github.com/langchain-ai/langchain/pull/38844",
-  },
-  {
+    id: "litellm-33217",
     title: "LiteLLM",
     repo: "BerriAI/litellm",
     tagline: "Fixed Vertex AI and Azure param mapping issues",
@@ -87,6 +68,32 @@ const contributions = [
     tech: ["Python", "API Integration", "Vertex AI"],
     metrics: ["Bug Fix"],
     github: "https://github.com/BerriAI/litellm/pull/33217",
+  },
+  {
+    id: "litellm-33216",
+    title: "LiteLLM",
+    repo: "BerriAI/litellm",
+    tagline: "Added missing Azure audio and realtime model pricing aliases",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Added undated pricing aliases for azure/gpt-audio-mini and azure/gpt-realtime-mini to the model cost map, resolving silent cost tracking failures for enterprise Azure deployments using audio and realtime endpoints.",
+    tech: ["Python", "Azure OpenAI", "Cost Tracking"],
+    metrics: ["Bug Fix", "Pricing"],
+    github: "https://github.com/BerriAI/litellm/pull/33216",
+  },
+  {
+    id: "litellm-31785",
+    title: "LiteLLM",
+    repo: "BerriAI/litellm",
+    tagline: "Eliminated phantom assistant messages after tool calls",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Fixed a subtle bug where blank assistant messages were silently injected after tool_calls in the message history, corrupting multi-turn conversations and causing downstream model confusion on providers that validate message ordering strictly.",
+    tech: ["Python", "LLM Proxy", "Message Pipeline"],
+    metrics: ["Bug Fix", "Message Integrity"],
+    github: "https://github.com/BerriAI/litellm/pull/31785",
   },
 ];
 
@@ -112,7 +119,7 @@ export default function OpenSource() {
 
         <div className="mt-14 space-y-6">
           {contributions.map((c, i) => (
-            <Reveal key={c.repo} delay={i * 100}>
+            <Reveal key={c.id} delay={i * 100}>
               <div className="card glass rounded-2xl p-7 md:p-9 border border-white/[0.05] hover:border-[#f97316]/30 transition-colors">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                   <div>
