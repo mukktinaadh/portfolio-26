@@ -31,19 +31,6 @@ const contributions = [
     github: "https://github.com/microsoft/autogen/pull/7959",
   },
   {
-    id: "pydantic-ai-6520",
-    title: "Pydantic AI",
-    repo: "pydantic/pydantic-ai",
-    tagline: "Fixed ContentFilterError bypass on non-empty refusal text",
-    status: "Open PR",
-    statusColor: "chip-orange",
-    description:
-      "Fixed a critical security flaw where OpenAI models returning finish_reason='content_filter' with non-empty refusal text bypassed the ContentFilterError check entirely. Refusal text was silently returned as valid agent output. Restructured the agent graph to enforce content filter checks unconditionally.",
-    tech: ["Python", "Pydantic", "Agent Graph"],
-    metrics: ["Security Fix", "Content Safety"],
-    github: "https://github.com/pydantic/pydantic-ai/pull/6520",
-  },
-  {
     id: "autogen-7954",
     title: "Microsoft AutoGen",
     repo: "microsoft/autogen",
