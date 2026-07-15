@@ -5,6 +5,18 @@ import { Github, GitPullRequest } from "lucide-react";
 
 const contributions = [
   {
+    title: "Pydantic AI",
+    repo: "pydantic/pydantic-ai",
+    tagline: "Fixed core content filter handling in agent orchestration graph",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Patched a critical security flaw in the streaming agent graph where `content_filter` block reasons were being silently bypassed if the model returned partial refusal text. Restructured the run loop to guarantee `ContentFilterError` exceptions are strictly enforced before content validation.",
+    tech: ["Python", "Pydantic", "Async Streaming"],
+    metrics: ["Security Fix", "Agent Graph"],
+    github: "https://github.com/pydantic/pydantic-ai/pull/6503",
+  },
+  {
     title: "Microsoft AutoGen",
     repo: "microsoft/autogen",
     tagline: "Fixed core configuration parsing for Azure deployments and extra_body",
