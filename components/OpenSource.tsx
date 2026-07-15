@@ -5,6 +5,18 @@ import { Github, GitPullRequest } from "lucide-react";
 
 const contributions = [
   {
+    title: "Microsoft AutoGen",
+    repo: "microsoft/autogen",
+    tagline: "Optimized Azure AI agent for parallel tool execution",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Implemented a critical machine-level performance optimization in the Azure AI Agent by replacing sequential loops with asynchronous concurrency (asyncio.gather), significantly reducing execution latency when multiple tools are dispatched simultaneously.",
+    tech: ["Python", "AsyncIO", "Azure OpenAI"],
+    metrics: ["Performance", "Concurrency"],
+    github: "https://github.com/microsoft/autogen/pull/7959",
+  },
+  {
     title: "Pydantic AI",
     repo: "pydantic/pydantic-ai",
     tagline: "Fixed core content filter handling in agent orchestration graph",
