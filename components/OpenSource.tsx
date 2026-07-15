@@ -38,7 +38,7 @@ const contributions = [
       "Patched a critical security flaw in the streaming agent graph where `content_filter` block reasons were being silently bypassed if the model returned partial refusal text. Restructured the run loop to guarantee `ContentFilterError` exceptions are strictly enforced before content validation.",
     tech: ["Python", "Pydantic", "Async Streaming"],
     metrics: ["Security Fix", "Agent Graph"],
-    github: "https://github.com/pydantic/pydantic-ai/pull/6503",
+    github: "https://github.com/pydantic/pydantic-ai/pull/6513",
   },
   {
     title: "Microsoft AutoGen",
