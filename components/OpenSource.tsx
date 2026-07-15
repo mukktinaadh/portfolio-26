@@ -5,6 +5,18 @@ import { Github, GitPullRequest } from "lucide-react";
 
 const contributions = [
   {
+    title: "LiteLLM",
+    repo: "BerriAI/litellm",
+    tagline: "Fixed core routing for OpenAI GPT-5.6 reasoning models",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Patched a critical proxy routing failure in LiteLLM where the new OpenAI GPT-5.6 reasoning models crashed when executing function calls. Automatically bridges tool execution requests to the /v1/responses endpoint seamlessly.",
+    tech: ["Python", "OpenAI API", "API Proxy"],
+    metrics: ["Bug Fix", "Routing"],
+    github: "https://github.com/BerriAI/litellm/pull/33373",
+  },
+  {
     title: "Microsoft AutoGen",
     repo: "microsoft/autogen",
     tagline: "Optimized Azure AI agent for parallel tool execution",
