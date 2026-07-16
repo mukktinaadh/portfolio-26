@@ -5,6 +5,19 @@ import { Github, GitPullRequest } from "lucide-react";
 
 const contributions = [
   {
+    id: "openai-python-3512",
+    title: "OpenAI Python SDK",
+    repo: "openai/openai-python",
+    tagline: "Fixed streaming connection destruction regression (TCP FIN after [DONE])",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Restored the critical response body drain after SSE [DONE] events in both sync and async streaming paths. Without this, h11 cannot parse the HTTP/1.1 chunked terminator, causing httpcore to destroy connections with TCP FIN instead of returning them to the pool — spiking downstream_remote_disconnect errors on enterprise proxies.",
+    tech: ["Python", "httpx", "h11", "SSE Streaming"],
+    metrics: ["Regression Fix", "Connection Pooling"],
+    github: "https://github.com/openai/openai-python/pull/3512",
+  },
+  {
     id: "litellm-33373",
     title: "LiteLLM",
     repo: "BerriAI/litellm",
