@@ -9,8 +9,8 @@ const contributions = [
     title: "LangChain",
     repo: "langchain-ai/langchain",
     tagline: "Lazy loaded transformers to optimize Core import times",
-    status: "Open PR",
-    statusColor: "chip-orange",
+    status: "Closed PR",
+    statusColor: "chip-red",
     description:
       "Fixed a critical performance bug in langchain-core by lazy-loading the massive transformers library inside the get_tokenizer method instead of at the module level. This surgically cut 300-500ms of dead latency off the app startup time for any application importing BaseChatModel.",
     tech: ["Python", "Performance Optimization", "Architecture"],
