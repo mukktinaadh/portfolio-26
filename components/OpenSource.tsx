@@ -5,6 +5,32 @@ import { Github, GitPullRequest } from "lucide-react";
 
 const contributions = [
   {
+    id: "langchain-38970",
+    title: "LangChain",
+    repo: "langchain-ai/langchain",
+    tagline: "Lazy loaded transformers to optimize Core import times",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Fixed a critical performance bug in langchain-core by lazy-loading the massive transformers library inside the get_tokenizer method instead of at the module level. This surgically cut 300-500ms of dead latency off the app startup time for any application importing BaseChatModel.",
+    tech: ["Python", "Performance Optimization", "Architecture"],
+    metrics: ["Bug Fix", "Startup Time Improvement", "90k+ Stars Repo"],
+    github: "https://github.com/langchain-ai/langchain/pull/38970",
+  },
+  {
+    id: "langgraph-8364",
+    title: "LangGraph",
+    repo: "langchain-ai/langgraph",
+    tagline: "Fixed msgpack serialization for PurePath and range objects",
+    status: "Open PR",
+    statusColor: "chip-orange",
+    description:
+      "Added native msgpack serialization and strict-mode deserialization support for pathlib.PurePath variants (PurePosixPath, PureWindowsPath) and range objects in LangGraph's checkpoint system, fixing a crash during state persistence.",
+    tech: ["Python", "msgpack", "Serialization"],
+    metrics: ["Bug Fix", "State Persistence"],
+    github: "https://github.com/langchain-ai/langgraph/pull/8364",
+  },
+  {
     id: "openai-python-3512",
     title: "OpenAI Python SDK",
     repo: "openai/openai-python",
