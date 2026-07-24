@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
 const titles = [
   "AI / Agent Engineer",
@@ -44,7 +44,7 @@ export default function Hero() {
     `transition-all duration-[800ms] cubic-bezier(0.16,1,0.3,1) delay-[${d}ms] ${ready ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`;
 
   return (
-    <section className="relative min-h-screen flex items-center py-28 md:py-0">
+    <section className="relative min-h-screen flex items-center py-28 md:py-0 overflow-hidden">
       {/* Ambient blobs */}
       <div className="absolute top-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#f97316]/[0.04] blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#38bdf8]/[0.03] blur-[120px] pointer-events-none" />
@@ -161,12 +161,6 @@ export default function Hero() {
             <div className="absolute -bottom-2.5 -right-2.5 w-6 h-6 border-b-2 border-r-2 border-[#f97316]/40 rounded-br-sm" />
           </div>
         </div>
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-bounce opacity-40">
-        <span className="text-[0.65rem] uppercase tracking-[0.2em] text-[#555]">Scroll</span>
-        <ArrowDown size={14} className="text-[#f97316]" />
       </div>
     </section>
   );

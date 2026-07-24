@@ -21,6 +21,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -30,7 +35,6 @@ html {
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  overflow-x: hidden;
 }
 
 /* Subtle noise overlay */
